@@ -1,0 +1,341 @@
+*{
+
+    padding: 0;
+    margin: 0;
+
+}
+body{
+
+    background-color: #1A1A2E;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+    overflow-x: hidden;
+
+}
+
+hr{
+
+    border: 0px;
+    height: 1px;
+    background: linear-gradient(to right, #6A6ABA 0%, #1D1D33 100%);
+    margin: 0 auto;
+    width: 30%;
+    margin-top: 4em;
+    margin-bottom: 6em;
+
+}
+
+h1{
+
+    font-size: 76px;
+    font-weight: bolder;
+    margin-bottom: 2vh;
+
+}
+h2{
+
+    font-weight: bold;
+    margin-bottom: 3vh;
+
+}
+h3{
+
+    font-weight: 400;
+
+}
+
+a{
+
+    color: white;
+    text-decoration: none;
+
+}
+
+header{
+
+    padding: 10px 10px;
+    width: 100%;
+    display: flex;
+    position: absolute;
+
+}
+.titulo-site{
+
+    width: 96%;
+    font-weight: 500;
+
+}
+.gadgets{
+
+    width: 3%;
+    font-weight: 500;
+
+}
+
+.clicavel{
+
+    cursor: pointer;
+
+}
+
+.backgroundimg{
+
+    height: 90vh;
+    width: 100%;
+    background: 
+    linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
+    url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F1c%2F0a%2Fd1%2F1c0ad18b8bb0b7472c715aae6816da28.gif&f=1&nofb=1);
+    
+    filter: blur(2px);
+    position: absolute;
+
+}
+
+.apresentacao{
+
+    width: 100%;
+    text-align: center;
+    position: absolute; 
+    top: 28vh;
+
+}
+.apresentacao-h1{
+
+    text-shadow: 2px 2px 2px #6A6ABA;
+
+}
+.apresentacao-h2{
+
+    font-size: 36px;
+
+}
+
+.curriculo{
+
+    height: 8vh;
+    width: 110px;
+    border-radius: 30px;
+    color: #FFF;
+    border: 1.5px solid #FFF;
+    font-weight: bold;
+    background-color: transparent;
+
+}
+.curriculo:hover{
+
+    transition: 0.2s ease-in-out;
+    color: #6A6ABA;
+    border: 1.5px solid #6A6ABA;
+
+}
+#aboutme-marker{
+
+    position: absolute;
+    top: 92vh;
+
+}
+#aboutme{
+
+    padding-top: 110vh;
+
+}
+.aboutme-texto{
+
+    font-size: 1.2em;
+    padding-left: 50px;
+    padding-top: 60px;
+    margin: 0 auto;
+
+}
+.aboutme-div{
+
+    display: flex;
+    margin: 0 auto;
+    width: 70%;
+
+}
+.aboutme-ilust{
+
+    height: auto;
+    width: 25vw;
+
+}
+
+.aboutme-h2,
+.contato-h2,
+.projetos-h2,
+.projetos-h3{
+
+    text-align: center;
+
+}
+.aboutme-h2::after,
+.contato-h2::after,
+.projetos-h2::after{
+
+    content: "";
+    display: block;
+    height: 2px;
+    margin-top: 2px;
+    background: #6A6ABA;
+    width: 4em;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.projeto-ednaldosite,
+.projeto-truco-cli{
+
+    margin: 0 auto;
+    display: flex;
+    padding-top: 60px;
+
+}
+.projeto-ednaldosite{
+
+    width: 80%;
+
+}
+.projeto-truco-cli{
+
+    margin-top: -60px;
+    width: 65%;
+
+}
+
+.projeto-title{
+
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+
+}
+
+.projetos-ednaldosite-img{
+
+    height: auto;
+    width: 70%;
+    box-shadow: 4px 3px 5px #111;
+
+}
+.projetos-truco-cli-img{
+
+    height: 500px;
+    width: auto;
+    box-shadow: 4px 3px 5px #111;
+
+}
+
+.projeto-ednaldosite-texto{
+
+    margin-left: 50px;
+    margin-top: 50px;
+
+}
+
+.projeto-truco-cli-texto{
+
+    margin-right: 50px;
+    margin-top: 50px;
+
+}
+
+
+.contato-ul{
+
+    display: flex;
+    width: 8em;
+    margin: 0 auto;
+    list-style: none;
+    justify-content: space-between;
+
+}
+
+i{
+
+    color: white;
+    font-size: 60px;
+
+}
+i:hover{
+
+    transition: 0.2s ease-in-out;
+/*  color: ;*/
+
+}
+
+footer{
+
+    margin-top: 100px;
+    padding: 20px 0px 20px 0px;
+    width: 100%;
+/*    background-color: #000; */ 
+
+}
+.footer-ul{
+
+    width: 15em;
+    display: flex;
+    list-style: none;
+    margin: 0 auto;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+.footer-li:hover{
+
+    border-bottom: 2px solid #6A6ABA;
+    margin-top: -2px;
+
+}
+.storyset{
+
+    margin-top: 20px;
+    font-size: 10px;
+    text-align: center;
+    
+}
+
+
+body::-webkit-scrollbar {
+
+    width: 8px; 
+
+}
+body::-webkit-scrollbar-thumb{
+
+    height: 10%;
+    border-radius: 20px;
+    background-color: darkgray;
+
+}
+
+/* Responsividade */
+@media only screen and (max-width: 1000px) {
+
+    .projeto-ednaldosite,
+    .projeto-truco-cli{
+
+        width: 100%;
+        display: inline-block;
+        text-align: center;
+
+    }
+    .projeto-ednaldosite-texto{
+
+        padding-top: 30px;
+        margin: 0 auto;
+        width: 70%;
+
+    }
+    .projeto-truco-cli-texto{
+
+        padding-bottom: 30px;
+        margin: 0 auto;
+        width: 70%;
+
+    }
+    
+}
