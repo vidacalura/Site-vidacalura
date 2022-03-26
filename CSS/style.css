@@ -69,7 +69,6 @@ header{
 
     width: 3%;
     font-weight: 500;
-    visibility: hidden;
 
 }
 
@@ -140,7 +139,7 @@ header{
     padding-top: 110vh;
 
 }
-.aboutme-p{
+.aboutme-texto{
 
     font-size: 1.2em;
     padding-left: 50px;
