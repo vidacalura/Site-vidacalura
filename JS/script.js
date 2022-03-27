@@ -7,16 +7,36 @@ const sobreMim_p3 = document.querySelector(".aboutme-p3");
 const ednaldo_p = document.querySelector(".projeto-ednaldosite-p");
 const trucoCli_p1 = document.querySelector(".projeto-truco-cli-p1");
 const trucoCli_p2 = document.querySelector(".projeto-truco-cli-p2");
-const verProjeto1 = document.querySelector(".ver-projeto1");
-const verProjeto2 = document.querySelector(".ver-projeto2");
 const contato_h2 = document.querySelector(".contato-h2");
 const projetos_h2 = document.querySelector(".projetos-h2");
 const projetos_h3 = document.querySelector(".projetos-h3");
 const footerAboutMe = document.querySelector(".footer-aboutme");
 const footerProjetos = document.querySelector(".footer-projetos");
 const footerContato = document.querySelector(".footer-contato");
+const browser = document.getElementById("browser-emoji");
 
 lang.addEventListener("click", changeLanguage);
+
+if (navigator.userAgent.includes("Firefox")){
+
+    browser.className = "fa fa-firefox ver-projeto";
+
+}
+else if(navigator.userAgent.includes("Chrome")){
+
+    browser.className = "fa fa-chrome ver-projeto";
+
+}
+else if(navigator.userAgent.includes("Edge")){
+
+    browser.className = "fa fa-edge ver-projeto";
+
+}
+else if(navigator.userAgent.includes("Safari")){
+
+    browser.className = "fa fa-safari ver-projeto";
+
+}
 
 
 function changeLanguage(){
@@ -42,9 +62,6 @@ function changeLanguage(){
         trucoCli_p1.textContent = "The famous Spanish card game, truco, coded 100% in C, made to be played on terminals."
         trucoCli_p2.textContent = "In the game you play against a bot until one of the players sums 12 points, following the \
                                    classic Truco Paulista rules."     
-
-        verProjeto1.textContent = "View project";
-        verProjeto2.textContent = "View project";
 
         // Titles
         contato_h2.textContent = "Contact:";
@@ -77,8 +94,6 @@ function changeLanguage(){
         trucoCli_p2.textContent = "Nele você joga contra um bot até conseguir 12 pontos, \
                                    seguindo as regras padrão do truco paulista."  
 
-        verProjeto1.textContent = "Ver projeto";
-        verProjeto2.textContent = "Ver projeto";
 
         contato_h2.textContent = "Entre em contato:";
 

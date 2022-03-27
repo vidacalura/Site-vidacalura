@@ -209,7 +209,34 @@ header{
 
     font-size: 22px;
     font-weight: bold;
+    margin-bottom: 5px;
+
+}
+
+.lang-html{
+
+    background-color: orange;
+    width: 80px;
+    padding: 2px;
+    border-radius: 2px;
     margin-bottom: 20px;
+    text-align: center;
+    
+}
+.lang-c{
+
+    background-color: purple;
+    width: 40px;
+    padding: 2px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    text-align: center;
+    
+}
+.ver-projeto{
+
+    font-size: 28px;
+    margin-right: 5px;
 
 }
 
@@ -335,6 +362,18 @@ body::-webkit-scrollbar-thumb{
         padding-bottom: 30px;
         margin: 0 auto;
         width: 70%;
+
+    }
+    .lang-c,
+    .lang-html{
+
+        margin: 0 auto;
+
+    }
+    .projeto-ednaldosite-p,
+    .projeto-truco-cli-p1{
+
+        margin-top: 20px;
 
     }
     
