@@ -100,7 +100,7 @@ function changeMode(){
     apresentacao_h1.style.color = "white";
     apresentacao_h2.style.color = "white";
 
-    if (document.body.style.background != "rgb(221, 221, 221)"){
+    if (!(document.body.style.background.includes("rgb(221, 221, 221)"))){
         document.body.style.background = "#DDD";
         document.body.style.color = "black";
      
