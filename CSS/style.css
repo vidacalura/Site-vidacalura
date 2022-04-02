@@ -1,3 +1,9 @@
+:root{
+
+    --darkBlue: #1A1A2E;
+    --lightPurple: #6A6ABA;
+
+}
 *{
 
     padding: 0;
@@ -6,7 +12,7 @@
 }
 body{
 
-    background-color: #1A1A2E;
+    background-color: var(--darkBlue);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: white;
     overflow-x: hidden;
@@ -17,7 +23,7 @@ hr{
 
     border: 0px;
     height: 1px;
-    background: linear-gradient(to right, #6A6ABA 0%, #1D1D33 100%);
+    background: linear-gradient(to right, var(--lightPurple) 0%, var(--darkBlue) 100%);
     margin: 0 auto;
     width: 30%;
     margin-top: 4em;
@@ -36,6 +42,7 @@ h2{
 
     font-weight: bold;
     margin-bottom: 3vh;
+    font-size: 28px;
 
 }
 h3{
@@ -61,14 +68,30 @@ header{
 }
 .titulo-site{
 
-    width: 96%;
+    width: 90%;
     font-weight: 500;
 
 }
 .gadgets{
 
-    width: 3%;
+    display: flex;
+    justify-content: space-evenly;
+    width: 10%;
     font-weight: 500;
+    color: white;
+    padding-left: 30%;
+    padding-right: 0.5em;
+
+}
+#change-mode{
+
+    font-size: 18px;
+
+}
+.change-mode-btn{
+
+    background: transparent;
+    border: 0px;
 
 }
 
@@ -80,8 +103,10 @@ header{
 
 .backgroundimg{
 
+    margin-top: -10px;
+    margin-left: -10px;
     height: 90vh;
-    width: 100%;
+    width: 105%;
     background: 
     linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
     url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F1c%2F0a%2Fd1%2F1c0ad18b8bb0b7472c715aae6816da28.gif&f=1&nofb=1);
@@ -101,7 +126,7 @@ header{
 }
 .apresentacao-h1{
 
-    text-shadow: 2px 2px 2px #6A6ABA;
+    text-shadow: 2px 2px 2px var(--lightPurple);
 
 }
 .apresentacao-h2{
@@ -124,14 +149,14 @@ header{
 .curriculo:hover{
 
     transition: 0.2s ease-in-out;
-    color: #6A6ABA;
-    border: 1.5px solid #6A6ABA;
+    color: var(--lightPurple);
+    border: 1.5px solid var(--lightPurple);
 
 }
 #aboutme-marker{
 
     position: absolute;
-    top: 92vh;
+    top: 90.8vh;
 
 }
 #aboutme{
@@ -177,7 +202,7 @@ header{
     display: block;
     height: 2px;
     margin-top: 2px;
-    background: #6A6ABA;
+    background: var(--lightPurple);
     width: 4em;
     position: absolute;
     left: 50%;
@@ -221,6 +246,7 @@ header{
     border-radius: 2px;
     margin-bottom: 20px;
     text-align: center;
+    color: white;
     
 }
 .lang-c{
@@ -231,6 +257,7 @@ header{
     border-radius: 2px;
     margin-bottom: 20px;
     text-align: center;
+    color: white;
     
 }
 .ver-projeto{
@@ -243,7 +270,7 @@ header{
 .projetos-ednaldosite-img{
 
     height: auto;
-    width: 70%;
+    width: 50vw;
     box-shadow: 4px 3px 5px #111;
 
 }
@@ -269,14 +296,30 @@ header{
 
 }
 
+.contato-h2{
 
+    margin-bottom: 40px;
+
+}
 .contato-ul{
 
     display: flex;
-    width: 8em;
+    width: 13em;
     margin: 0 auto;
     list-style: none;
     justify-content: space-between;
+
+}
+.fa-linkedin{
+
+    padding-top: 8px;
+    font-size: 50px;
+    text-align: center;
+    height: 52px;
+    width: 60px;
+    background-color: white;
+    color: var(--darkBlue);
+    border-radius: 6px;
 
 }
 
@@ -298,7 +341,6 @@ footer{
     margin-top: 100px;
     padding: 20px 0px 20px 0px;
     width: 100%;
-/*    background-color: #000; */ 
 
 }
 .footer-ul{
@@ -313,7 +355,7 @@ footer{
 }
 .footer-li:hover{
 
-    border-bottom: 2px solid #6A6ABA;
+    border-bottom: 2px solid var(--lightPurple);
     margin-top: -2px;
 
 }
@@ -341,6 +383,36 @@ body::-webkit-scrollbar-thumb{
 
 /* Responsividade */
 @media only screen and (max-width: 1000px) {
+
+    .gadgets{
+
+        padding-left: 0%;
+
+    }
+
+    .aboutme-ilust{
+
+        width: 18em;
+
+    }
+    .aboutme-div{
+
+        margin-top: 50px;
+        text-align: center;
+        display: block;
+
+    }
+    .aboutme-texto{
+
+        width: 75%;
+
+    }
+
+    .projetos-ednaldosite-img{
+
+        width: 80vw;
+
+    }
 
     .projeto-ednaldosite,
     .projeto-truco-cli{
@@ -375,6 +447,19 @@ body::-webkit-scrollbar-thumb{
 
         margin-top: 20px;
 
+    }
+
+    body::-webkit-scrollbar {
+
+        width: 4px; 
+    
+    }
+    body::-webkit-scrollbar-thumb{
+    
+        height: 10%;
+        border-radius: 20px;
+        background-color: darkgray;
+    
     }
     
 }

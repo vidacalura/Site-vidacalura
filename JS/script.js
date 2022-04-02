@@ -1,5 +1,8 @@
 const lang = document.querySelector(".idioma");
+const mode = document.getElementById("change-mode");
 const curriculoBtn = document.querySelector(".curriculo");
+const apresentacao_h1 = document.querySelector(".apresentacao-h1");
+const apresentacao_h2 = document.querySelector(".apresentacao-h2")
 const sobreMim_h2 = document.querySelector(".aboutme-h2");
 const sobreMim_p1 = document.querySelector(".aboutme-p1");
 const sobreMim_p2 = document.querySelector(".aboutme-p2");
@@ -10,33 +13,18 @@ const trucoCli_p2 = document.querySelector(".projeto-truco-cli-p2");
 const contato_h2 = document.querySelector(".contato-h2");
 const projetos_h2 = document.querySelector(".projetos-h2");
 const projetos_h3 = document.querySelector(".projetos-h3");
+const linkedinIcon = document.querySelector(".fa-linkedin");
+const footerStorySet = document.querySelector(".storyset-text");
 const footerAboutMe = document.querySelector(".footer-aboutme");
 const footerProjetos = document.querySelector(".footer-projetos");
 const footerContato = document.querySelector(".footer-contato");
 const browser = document.getElementById("browser-emoji");
 
+browserSelect();
+
 lang.addEventListener("click", changeLanguage);
+mode.addEventListener("click", changeMode);
 
-if (navigator.userAgent.includes("Firefox")){
-
-    browser.className = "fa fa-firefox ver-projeto";
-
-}
-else if(navigator.userAgent.includes("Chrome")){
-
-    browser.className = "fa fa-chrome ver-projeto";
-
-}
-else if(navigator.userAgent.includes("Edge")){
-
-    browser.className = "fa fa-edge ver-projeto";
-
-}
-else if(navigator.userAgent.includes("Safari")){
-
-    browser.className = "fa fa-safari ver-projeto";
-
-}
 
 
 function changeLanguage(){
@@ -104,5 +92,66 @@ function changeLanguage(){
         footerProjetos.textContent = "Projetos"
         footerContato.textContent = "Contato";
     }
+
+}
+
+function changeMode(){   
+
+    apresentacao_h1.style.color = "white";
+    apresentacao_h2.style.color = "white";
+
+    if (document.body.style.background != "rgb(221, 221, 221)"){
+        document.body.style.background = "#DDD";
+        document.body.style.color = "black";
+     
+        mode.className = "fa fa-moon clicavel";
+
+        footerAboutMe.style.color = "black";
+        footerProjetos.style.color = "black"
+        footerContato.style.color = "black";
+
+        linkedinIcon.style.color = "#DDD";
+
+        footerStorySet.style.color = "black"
+    }
+    else {
+        document.body.style.background = "var(--darkBlue)";
+        document.body.style.color = "white";
+
+        mode.className = "fa fa-sun clicavel";
+
+        footerAboutMe.style.color = "white";
+        footerProjetos.style.color = "white"
+        footerContato.style.color = "white";
+
+        linkedinIcon.style.color = "var(--darkBlue)";
+
+        footerStorySet.style.color = "white"
+    }
+
+}
+
+function browserSelect(){
+
+    if (navigator.userAgent.includes("Firefox")){
+
+        browser.className = "fa fa-firefox ver-projeto";
+    
+    }
+    else if(navigator.userAgent.includes("Chrome")){
+    
+        browser.className = "fa fa-chrome ver-projeto";
+    
+    }
+    else if(navigator.userAgent.includes("Edge")){
+    
+        browser.className = "fa fa-edge ver-projeto";
+    
+    }
+    else if(navigator.userAgent.includes("Safari")){
+    
+        browser.className = "fa fa-safari ver-projeto";
+    
+    }    
 
 }
