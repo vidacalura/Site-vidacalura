@@ -1,5 +1,6 @@
 const lang = document.querySelector(".idioma");
 const mode = document.getElementById("change-mode");
+const imgWpp = document.querySelector(".backgroundimg");
 const curriculoBtn = document.querySelector(".curriculo");
 const apresentacao_h1 = document.querySelector(".apresentacao-h1");
 const apresentacao_h2 = document.querySelector(".apresentacao-h2")
@@ -7,6 +8,7 @@ const sobreMim_h2 = document.querySelector(".aboutme-h2");
 const sobreMim_p1 = document.querySelector(".aboutme-p1");
 const sobreMim_p2 = document.querySelector(".aboutme-p2");
 const sobreMim_p3 = document.querySelector(".aboutme-p3");
+const blog_p = document.querySelector(".projeto-blog-p");
 const ednaldo_p = document.querySelector(".projeto-ednaldosite-p");
 const trucoCli_p1 = document.querySelector(".projeto-truco-cli-p1");
 const trucoCli_p2 = document.querySelector(".projeto-truco-cli-p2");
@@ -43,6 +45,8 @@ function changeLanguage(){
         sobreMim_p3.textContent = "I am always looking forward to learn more about this vast and intriguing field that is technology!";
         
         // Projetos
+        blog_p.textContent = "My blog, developed with Tailwind CSS. It contais my projects update notes and documentation."
+
         ednaldo_p.textContent = "My first website developed after my first year of studying web development. It's a fansite \
                                 of the brazilian artist and musician Ednaldo Pereira, made entirely in pure HTML/CSS \
                                 and hosted via Firebase.";
@@ -72,6 +76,8 @@ function changeLanguage(){
         sobreMim_p1.textContent = "Eu sou Lucas, um web developer e software developer iniciando na área da tecnologia."
         sobreMim_p2.textContent = "Eu desenvolvo sites completos e responsivos e aplicações web com o stack LAMP ou Firebase, e crio aplicações em Java e C."
         sobreMim_p3.textContent = "Estou sempre buscando conhecer mais desta área tão vasta e bela que é a tecnologia!"
+
+        blog_p.textContent = "Meu blog, desenvolvido com Tailwind CSS, onde coloco atualizações e documentação de meus projetos."
 
         ednaldo_p.textContent = "Meu primeiro site desenvolvido após meu primeiro ano de estudo \
                                  de web development, um fansite do artista Ednaldo Pereira em \
@@ -103,6 +109,9 @@ function changeMode(){
     if (!(document.body.style.background.includes("rgb(221, 221, 221)"))){
         document.body.style.background = "#DDD";
         document.body.style.color = "black";
+
+        imgWpp.style.background = "linear-gradient(0deg, rgba(256, 256, 256, 0), rgba(256, 256, 256, 0)), \
+        url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F1c%2F0a%2Fd1%2F1c0ad18b8bb0b7472c715aae6816da28.gif&f=1&nofb=1)";
      
         mode.className = "fa fa-moon clicavel";
 
@@ -117,6 +126,9 @@ function changeMode(){
     else {
         document.body.style.background = "var(--darkBlue)";
         document.body.style.color = "white";
+
+        imgWpp.style.background = "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), \
+        url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F1c%2F0a%2Fd1%2F1c0ad18b8bb0b7472c715aae6816da28.gif&f=1&nofb=1)";
 
         mode.className = "fa fa-sun clicavel";
 

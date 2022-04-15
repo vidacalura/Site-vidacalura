@@ -211,7 +211,8 @@ header{
 }
 
 .projeto-ednaldosite,
-.projeto-truco-cli{
+.projeto-truco-cli,
+.projeto-blog{
 
     margin: 0 auto;
     display: flex;
@@ -227,6 +228,11 @@ header{
 
     margin-top: -60px;
     width: 65%;
+
+}
+.projeto-blog{
+
+    width: 80%;
 
 }
 
@@ -281,6 +287,13 @@ header{
     box-shadow: 4px 3px 5px #111;
 
 }
+.blog-img{
+
+    height: auto;
+    width: 52vw;
+    box-shadow: 4px 3px 5px #111;
+
+}
 
 .projeto-ednaldosite-texto{
 
@@ -292,6 +305,13 @@ header{
 .projeto-truco-cli-texto{
 
     margin-right: 50px;
+    margin-top: 50px;
+
+}
+
+.projeto-blog-texto{
+
+    margin-left: 50px;
     margin-top: 50px;
 
 }
@@ -408,21 +428,25 @@ body::-webkit-scrollbar-thumb{
 
     }
 
-    .projetos-ednaldosite-img{
+    .projetos-ednaldosite-img,
+    .blog-img{
 
         width: 80vw;
 
     }
 
     .projeto-ednaldosite,
-    .projeto-truco-cli{
+    .projeto-truco-cli,
+    .projeto-blog{
 
         width: 100%;
         display: inline-block;
         text-align: center;
 
     }
-    .projeto-ednaldosite-texto{
+    .projeto-ednaldosite-texto,
+    .projeto-truco-cli-texto,
+    .projeto-blog-texto{
 
         padding-top: 30px;
         margin: 0 auto;
@@ -431,11 +455,10 @@ body::-webkit-scrollbar-thumb{
     }
     .projeto-truco-cli-texto{
 
-        padding-bottom: 30px;
-        margin: 0 auto;
-        width: 70%;
+        margin-bottom: 20px;
 
     }
+
     .lang-c,
     .lang-html{
 
@@ -443,7 +466,8 @@ body::-webkit-scrollbar-thumb{
 
     }
     .projeto-ednaldosite-p,
-    .projeto-truco-cli-p1{
+    .projeto-truco-cli-p1,
+    .projeto-blog-p{
 
         margin-top: 20px;
 
