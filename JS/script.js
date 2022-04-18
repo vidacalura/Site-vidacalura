@@ -20,9 +20,11 @@ const footerStorySet = document.querySelector(".storyset-text");
 const footerAboutMe = document.querySelector(".footer-aboutme");
 const footerProjetos = document.querySelector(".footer-projetos");
 const footerContato = document.querySelector(".footer-contato");
-const browser = document.getElementById("browser-emoji");
+const browser1 = document.getElementById("browser-emoji1");
+const browser2 = document.getElementById("browser-emoji2");
 
-browserSelect();
+browserSelect(browser1);
+browserSelect(browser2);
 
 lang.addEventListener("click", changeLanguage);
 mode.addEventListener("click", changeMode);
@@ -45,7 +47,8 @@ function changeLanguage(){
         sobreMim_p3.textContent = "I am always looking forward to learn more about this vast and intriguing field that is technology!";
         
         // Projetos
-        blog_p.textContent = "My blog, developed with Tailwind CSS. It contais my projects update notes and documentation."
+        blog_p.textContent = "My blog, developed with Tailwind CSS and hosted via \
+        Firebase. It contains my projects update notes and documentation."
 
         ednaldo_p.textContent = "My first website developed after my first year of studying web development. It's a fansite \
                                 of the brazilian artist and musician Ednaldo Pereira, made entirely in pure HTML/CSS \
@@ -77,7 +80,8 @@ function changeLanguage(){
         sobreMim_p2.textContent = "Eu desenvolvo sites completos e responsivos e aplicações web com o stack LAMP ou Firebase, e crio aplicações em Java e C."
         sobreMim_p3.textContent = "Estou sempre buscando conhecer mais desta área tão vasta e bela que é a tecnologia!"
 
-        blog_p.textContent = "Meu blog, desenvolvido com Tailwind CSS, onde coloco atualizações e documentação de meus projetos."
+        blog_p.textContent = "Meu blog, desenvolvido com Tailwind CSS e \
+        hosteado via Firebase, onde coloco atualizações e documentação de meus projetos."
 
         ednaldo_p.textContent = "Meu primeiro site desenvolvido após meu primeiro ano de estudo \
                                  de web development, um fansite do artista Ednaldo Pereira em \
@@ -143,7 +147,7 @@ function changeMode(){
 
 }
 
-function browserSelect(){
+function browserSelect(browser){
 
     if (navigator.userAgent.includes("Firefox")){
 
