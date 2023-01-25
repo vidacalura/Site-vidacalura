@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&family=Ubuntu&display=swap');
+
+*{
+
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Code Pro', monospace;
+
+}
+
+body{
+
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url("../imgs/440764-Archlinux-Arch_Linux.webp");
+
+}
+main{
+
+    width: 100vw;
+    height: 100vh;
+    padding: 1rem;
+    background-color: rgb(0, 0, 0, 0.8);
+    color: white;
+    overflow-y: scroll;
+
+}
+.terminal-user{
+
+    color: blue;
+
+}
+.terminal-info{
+
+    font-weight: bold;
+
+}
+.terminal-textbox{
+
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0px 0.5rem;
+    width: 100%;
+    color: white;
+    cursor: default;
+
+}
+.terminal-path{
+
+    padding: 0px 0.2rem 0px 0.4rem;
+
+}
+.flex{
+
+    display: flex;
+
+}
+
+.help-texto {
+    color: #AAA;
+}
