@@ -1,21 +1,21 @@
-let terminalTextbox, terminalPathText = "~", terminalHistory = [], comandosVoltados = 0;
+let terminalTextbox, terminalPathText = "/home/guest", terminalHistory = [], comandosVoltados = 0;
 const main = document.querySelector("main");
 
 const dirTree = {
-    "/": {
-        "home": {
-            "guest": {
-                "Desktop": null, 
-                "Documents": null, // currículo
-                "Downloads": null, // Jeek Online / Truco-cli
-                "Music": null, // randm.rs
-                "Pictures": null, // pasta de imgs
-                "Public": null,
-                "Templates": null,
-                "Videos": null
-            }
-        },
-    }
+    // "/": {
+    "home": {
+        "guest": {
+            "Desktop": null, 
+            "Documents": null, // currículo
+            "Downloads": null, // Jeek Online / Truco-cli
+            "Music": null, // randm.rs
+            "Pictures": null, // pasta de imgs
+            "Public": null,
+            "Templates": null,
+            "Videos": null
+        }
+    },
+    // }
 };
 
 executarComando("neofetch");
@@ -42,26 +42,115 @@ function executarComando(comando){
                 cd &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Entra em um diretório <br> \
                 pwd &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Retorna o local da árvore de arquivos em que o usuário está <br> \
                 echo &nbsp;&nbsp;&nbsp;&nbsp;Retorna algum texto dado pelo usuário <br> \
+                cat &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Retorna os conteúdos de um arquivo \
                 neofetch Retorna algumas informações do sistema operacional <br> \
                 history &nbsp;Retorna o histórico de todos os comandos rodados na última sessão <br> \
                 clear &nbsp;&nbsp;&nbsp;Limpa o terminal <br> \
                 reboot &nbsp;&nbsp;Reinicia o sistema <br> \
                 shutdown Desliga o sistema <br> \
-                cat &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Retorna os conteúdos de um arquivo \
                 ");
             }
         },
 
         ls() {
+            const caminhoArr = terminalPathText.split("/");
 
+            if (caminhoArr.length == 2) {
+                Object.entries(dirTree[caminhoArr[1]]).forEach((arq) => {
+                    printTerminal(arq[0]);
+                });
+            }
+            else if (caminhoArr.length == 3) {
+                Object.entries(dirTree["home"][caminhoArr[2]]).forEach((arq) => {
+                    printTerminal(arq[0]);
+                });
+            }
+            else {
+                if (dirTree["home"]["guest"][caminhoArr[3]] != null) {
+                    dirTree["home"]["guest"][caminhoArr[3]].forEach((arq) => {
+                        printTerminal(arq);
+                    });
+                }
+            }
         },
 
         cd() {
+            const pastaAtual = terminalPathText.split("/")[terminalPathText.split("/").length - 1];
+            
+            if (!argv[1]) {
+                terminalPathText = "/home/guest";
+            }
+            else {
+                if (argv[1] == ".." || argv[1] == "../") {
+                    if (terminalPathText != "/home"){
+                        terminalPathText = terminalPathText.split("/");
+                        terminalPathText.pop();
+                        terminalPathText = terminalPathText.join("/");
+                    }
+                    else {
+                        printTerminal("Permissão negada");
+                    }
+                }
+                else if (argv[1] == "/") {
+                    printTerminal("Permissão negada");
+                }
+                else {
+                    let dirFound = false;
+                    const terminalPathTextSave = terminalPathText;
+
+                    // Se o argumento for um caminho absoluto
+                    if (argv[1] == "/home") {
+                        terminalPathText = "/home";
+                        dirFound = true;
+                    }
+                    else if (argv[1].slice(0, 5) == "/home") {
+                        terminalPathText = argv[1].split("/").slice(0, -1).join("/");
+                        argv[1] = argv[1].split("/").pop();
+                    }
+
+                    const caminhoArr = terminalPathText.split("/");
+
+                    // Remove a '/'
+                    if (argv[1][argv[1].length - 1] == '/') {
+                        argv[1] = argv[1].slice(0, -1);
+                    }
+
+                    if (caminhoArr.length == 2) {
+                        Object.entries(dirTree[caminhoArr[1]]).forEach((arq) => {
+                            if (arq[0] == argv[1]) {
+                                terminalPathText += "/" + argv[1];
+                                dirFound = true;
+                            }
+                        });
+                    }
+                    else if (caminhoArr.length == 3) {
+                        Object.entries(dirTree[caminhoArr[1]][caminhoArr[2]]).forEach((arq) => {
+                            if (arq[0] == argv[1]) {
+                                terminalPathText += "/" + argv[1];
+                                dirFound = true;
+                            }
+                        });
+                    }
+                    else {
+                        Object.entries(dirTree[caminhoArr[1]][caminhoArr[2]][caminhoArr[3]]).forEach((arq) => {
+                            if (arq[0] == argv[1]) {
+                                terminalPathText += "/" + argv[1];
+                                dirFound = true;
+                            }
+                        });
+                    }
+
+                    if (dirFound == false) {
+                        printTerminal(`cd: pasta não encontrada: ${argv[1]}`);
+                        terminalPathText = terminalPathTextSave;
+                    }
+                }
+            }
 
         },
 
         pwd() {
-            // printTerminal(terminalPathText);
+            printTerminal(terminalPathText);
         },
 
         echo() {
@@ -69,8 +158,12 @@ function executarComando(comando){
                 printTerminal(comando.slice(comando.indexOf('"') + 1, comando.length - 1));
             }
             else{
-                printTerminal(comando.slice(5));
+                printTerminal(comando.slice(5).trim());
             }
+        },
+
+        cat() {
+
         },
 
         neofetch() {
@@ -89,7 +182,7 @@ function executarComando(comando){
             `guest@vidacaluraportfolio` + "<br>" +
             `-------------------------` + "<br>" +
             `Navegador: ${navigator.userAgent}` + "<br>" +
-            `Host: Firebase` + "<br>" +
+            `Host: GitHub` + "<br>" +
             `Resolution: ${window.innerWidth}x${window.innerHeight}` + "<br>" +
             `Terminal font: Source Code Pro`;
 
@@ -100,6 +193,7 @@ function executarComando(comando){
             main.appendChild(container);
         },
 
+        // mv() { },
         // man() { },
 
         history() {
@@ -195,7 +289,8 @@ function criarLinha(){
 
     inputTerminalDiv.innerHTML = ` \
     <label class="terminal-user" for="terminal-textbox"> guest@vidacaluraportfolio </label> \
-    <div id="" class="terminal-info flex"> : <p class="terminal-path"> ${terminalPathText} </p> $ </div> \
+    <div id="" class="terminal-info flex"> : <p class="terminal-path"> ${terminalPathText.replace("/home/guest", "~")} \
+    </p> $ </div> \
     `;
 
     inputTerminalDiv.appendChild(terminalTextbox);
@@ -258,4 +353,5 @@ document.addEventListener("keydown", (e) => {
         limparTerminal();
         criarLinha();
     }
+
 });
