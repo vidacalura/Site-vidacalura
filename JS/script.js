@@ -6,7 +6,7 @@ const dirTree = {
     "home": {
         "guest": {
             "Desktop": null, 
-            "Documents": null, // currículo
+            "Documents": ["curriculo.pdf"], // currículo
             "Downloads": null, // Jeek Online / Truco-cli
             "Music": null, // randm.rs
             "Pictures": null, // pasta de imgs
@@ -42,7 +42,7 @@ function executarComando(comando){
                 cd &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Entra em um diretório <br> \
                 pwd &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Retorna o local da árvore de arquivos em que o usuário está <br> \
                 echo &nbsp;&nbsp;&nbsp;&nbsp;Retorna algum texto dado pelo usuário <br> \
-                cat &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Retorna os conteúdos de um arquivo \
+                cat &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Retorna os conteúdos de um arquivo (.txt, .md, .pdf) <br> \
                 neofetch Retorna algumas informações do sistema operacional <br> \
                 history &nbsp;Retorna o histórico de todos os comandos rodados na última sessão <br> \
                 clear &nbsp;&nbsp;&nbsp;Limpa o terminal <br> \
@@ -55,21 +55,54 @@ function executarComando(comando){
         ls() {
             const caminhoArr = terminalPathText.split("/");
 
-            if (caminhoArr.length == 2) {
-                Object.entries(dirTree[caminhoArr[1]]).forEach((arq) => {
-                    printTerminal(arq[0]);
-                });
-            }
-            else if (caminhoArr.length == 3) {
-                Object.entries(dirTree["home"][caminhoArr[2]]).forEach((arq) => {
-                    printTerminal(arq[0]);
-                });
+            if (!argv[1] || argv[1][0] == "-" || argv[1] == ".") {
+                if (caminhoArr.length == 2) {
+                    Object.entries(dirTree[caminhoArr[1]]).forEach((arq) => {
+                        printTerminal(arq[0], ["blue", "bold"]);
+                    });
+                }
+                else if (caminhoArr.length == 3) {
+                    Object.entries(dirTree["home"][caminhoArr[2]]).forEach((arq) => {
+                        printTerminal(arq[0], ["blue", "bold"]);
+                    });
+                }
+                else {
+                    if (dirTree["home"]["guest"][caminhoArr[3]] != null) {
+                        dirTree["home"]["guest"][caminhoArr[3]].forEach((arq) => {
+                            printTerminal(arq, ["green"]);
+                        });
+                    }
+                }
             }
             else {
-                if (dirTree["home"]["guest"][caminhoArr[3]] != null) {
-                    dirTree["home"]["guest"][caminhoArr[3]].forEach((arq) => {
-                        printTerminal(arq);
-                    });
+                let caminho = dirTree;
+
+                if (argv[1][0] != '/') {
+                    argv[1] = terminalPathText + "/" + argv[1];
+                }
+
+                for (const pasta of argv[1].split("/")) {
+                    if (pasta != '')
+                        caminho = caminho[pasta];
+                }
+
+                if (caminho === undefined) {
+                    printTerminal(`ls: não foi possível acessar ${argv[1]}: pasta ou arquivo não existe`);
+                }
+                else if (caminho === null) {
+                    printTerminal("&nbsp;");
+                }
+                else {
+                    if (Array.isArray(caminho)){
+                        Object.entries(caminho).forEach((arq) => {
+                            printTerminal(arq[1], ["green", "bold"]);
+                        });
+                    }
+                    else {
+                        Object.entries(caminho).forEach((arq) => {
+                            printTerminal(arq[0], ["blue", "bold"]);
+                        });
+                    }
                 }
             }
         },
@@ -80,6 +113,7 @@ function executarComando(comando){
             if (!argv[1]) {
                 terminalPathText = "/home/guest";
             }
+            else if (argv[1] == "." || argv[1] == "./") { }
             else {
                 if (argv[1] == ".." || argv[1] == "../") {
                     if (terminalPathText != "/home"){
@@ -109,6 +143,11 @@ function executarComando(comando){
                     }
 
                     const caminhoArr = terminalPathText.split("/");
+
+                    // Se houver 2 argumentos
+                    if (argv[1].split("/").length == 2) {
+                        // fazer
+                    }
 
                     // Remove a '/'
                     if (argv[1][argv[1].length - 1] == '/') {
@@ -154,16 +193,37 @@ function executarComando(comando){
         },
 
         echo() {
-            if (argv[1][0] == '"' && comando[comando.length - 1] == '"'){
-                printTerminal(comando.slice(comando.indexOf('"') + 1, comando.length - 1));
+            if (argv[1]){
+                if (argv[1][0] == '"' && comando[comando.length - 1] == '"'){
+                    printTerminal(comando.slice(comando.indexOf('"') + 1, comando.length - 1));
+                }
+                else{
+                    printTerminal(comando.slice(5).trim());
+                }
             }
-            else{
-                printTerminal(comando.slice(5).trim());
+            else {
+                printTerminal("&nbsp;");
             }
         },
 
         cat() {
+            if (argv[1]) {
+                let caminhoArquivo = "";
 
+                // Se caminho não for absoluto
+                if (argv[1].split("/").length == 1 || argv[1][0] != "/") {
+                    caminhoArquivo = terminalPathText + argv[1];
+                }
+                else {
+                    caminhoArquivo = argv[1];
+                }
+
+                // Verificar existência de arquivo na pasta
+                
+            }
+            else {
+                printTerminal(`cat: ${argv[1]}: arquivo não existe`);
+            }
         },
 
         neofetch() {
@@ -234,18 +294,16 @@ function executarComando(comando){
         },
 
         sudo() {
-            if (argv[1] != null){
-                if (comandos[argv[1]] != null){
-                    comandos[argv[1]](true);
-                }
-                else {
-                    printTerminal(`sudo: comando não encontrado: ${argv[1]}`);
-                }
-            }
+            printTerminal("Permissão negada");
         }
     }
 
     if (comandos[argv[0]] != null){
+        if (argv[1]){
+            argv[1] = argv[1].replace("~", "/home/guest");
+            argv[1] = argv[1].replace("./", "");
+        }
+
         comandos[argv[0]]();
     }
     else {
@@ -323,9 +381,22 @@ function avancarComando(){
     }
 }
 
-function printTerminal(texto){
+function printTerminal(texto, textStyles){
     const p = document.createElement("p");
     p.innerHTML = texto;
+
+    if (Array.isArray(textStyles)) {
+        if (textStyles.includes("bold")) {
+            p.style.fontWeight = "bold";
+        }
+
+        if (textStyles.includes("green")) {
+            p.style.color = "#B6E2A1";
+        }
+        else if (textStyles.includes("blue")) {
+            p.style.color = "#A0C3D2";
+        }
+    }
 
     main.appendChild(p);
 }
