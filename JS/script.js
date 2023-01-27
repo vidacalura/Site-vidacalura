@@ -1,3 +1,5 @@
+import { arquivos } from "./arquivos.js";
+
 let terminalTextbox, terminalPathText = "/home/guest", terminalHistory = [], comandosVoltados = 0;
 const main = document.querySelector("main");
 
@@ -6,7 +8,7 @@ const dirTree = {
     "home": {
         "guest": {
             "Desktop": null, 
-            "Documents": ["curriculo.pdf"], // currículo
+            "Documents": ["curriculo.pdf"],
             "Downloads": null, // Jeek Online / Truco-cli
             "Music": null, // randm.rs
             "Pictures": null, // pasta de imgs
@@ -144,7 +146,7 @@ function executarComando(comando){
 
                     const caminhoArr = terminalPathText.split("/");
 
-                    // Se houver 2 argumentos
+                    // Se houver 2 argumentos (guest/Document)
                     if (argv[1].split("/").length == 2) {
                         // fazer
                     }
@@ -212,14 +214,38 @@ function executarComando(comando){
 
                 // Se caminho não for absoluto
                 if (argv[1].split("/").length == 1 || argv[1][0] != "/") {
-                    caminhoArquivo = terminalPathText + argv[1];
+                    caminhoArquivo = `${terminalPathText}/${argv[1]}`;
                 }
                 else {
                     caminhoArquivo = argv[1];
                 }
 
                 // Verificar existência de arquivo na pasta
-                
+                let caminho = dirTree;
+                for (const pasta of caminhoArquivo.split("/").slice(0, -1)) {
+                    if (pasta != '')
+                        caminho = caminho[pasta];
+                }
+
+                if (!caminho) {
+                    printTerminal(`ls: não foi possível acessar ${argv[1]}: pasta ou arquivo não existe`);
+                }
+                else {
+                    const arquivoNome = caminhoArquivo.split("/")[caminhoArquivo.split("/").length - 1]
+                    const arquivoExiste = caminho.includes(arquivoNome);
+
+                    if (arquivoExiste){
+                        if (arquivoNome == "curriculo.pdf") {
+                            window.location.href = "../archives/curriculo.pdf";
+                        }
+
+                        printTerminal(arquivos[arquivoNome]);
+                    }
+                    else {
+                        printTerminal(`cat: ${argv[1]}: arquivo não existe`);
+                    }
+                }
+                    
             }
             else {
                 printTerminal(`cat: ${argv[1]}: arquivo não existe`);
