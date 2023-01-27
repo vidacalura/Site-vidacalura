@@ -7,10 +7,10 @@ const dirTree = {
     // "/": {
     "home": {
         "guest": {
-            "Desktop": null, 
-            "Documents": ["curriculo.pdf"],
-            "Downloads": null, // Jeek Online / Truco-cli
-            "Music": null, // randm.rs
+            "Desktop": ["bonzitalk.txt"], 
+            "Documents": ["curriculo.pdf", "aboutme.txt"],
+            "Downloads": ["truco-cli.txt", "jeek-online.txt"],
+            "Music": ["randm.txt"],
             "Pictures": null, // pasta de imgs
             "Public": null,
             "Templates": null,
@@ -236,7 +236,7 @@ function executarComando(comando){
 
                     if (arquivoExiste){
                         if (arquivoNome == "curriculo.pdf") {
-                            window.location.href = "../archives/curriculo.pdf";
+                            window.location.href = "Site-vidacalura/archives/curriculo.pdf";
                         }
 
                         printTerminal(arquivos[arquivoNome]);
@@ -269,8 +269,8 @@ function executarComando(comando){
             `-------------------------` + "<br>" +
             `Navegador: ${navigator.userAgent}` + "<br>" +
             `Host: GitHub` + "<br>" +
-            `Resolution: ${window.innerWidth}x${window.innerHeight}` + "<br>" +
-            `Terminal font: Source Code Pro`;
+            `Resolução: ${window.innerWidth}x${window.innerHeight}` + "<br>" +
+            `Fonte do terminal: Source Code Pro`;
 
             container.style.padding = "1rem 0px";
             container.appendChild(imgNeofetch);
@@ -281,6 +281,8 @@ function executarComando(comando){
 
         // mv() { },
         // man() { },
+        // htop() / 8top { },
+        // feh() / fé { },
 
         history() {
             for (let i = 0; i < terminalHistory.length - 1; i++){
@@ -428,9 +430,16 @@ function printTerminal(texto, textStyles){
 }
 
 function helpTexto() {
+    const codigoFonte = document.createElement("a");
+    codigoFonte.textContent = "Código fonte - Github";
+    codigoFonte.href = "https://github.com/vidacalura/Site-vidacalura";
+    codigoFonte.target = "_blank";
+
     const helpP = document.createElement("p");
     helpP.textContent = "Para mais informações use 'vidacalura --help'";
     helpP.classList.add("help-texto");
+
+    main.appendChild(codigoFonte);
     main.appendChild(helpP);
     main.appendChild(document.createElement("br"));
 }
