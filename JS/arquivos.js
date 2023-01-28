@@ -8,11 +8,12 @@ Como não é possível ler um .pdf aqui, estamos baixando o .pdf em seu computad
 arquivos["aboutme.txt"] = 
 `
 <pre>
-+=======================================================+
-|                                                       |
-|                       <b>Sobre mim</b>                       |
-|                                                       | 
-+=======================================================+
+
+*********************************************************
+*                                                       *
+*                       Sobre mim                       *
+*                                                       * 
+*********************************************************
 
 Olá, eu sou o Lucas. Um desenvolvedor open-source iniciando 
 na área da tecnologia. 
@@ -28,11 +29,8 @@ mais sobre mim em <a href="https://github.com/vidacalura">meu github</a> ou <a h
 arquivos["truco-cli.txt"] = 
 `
 <pre>
-+-------------------------------------------------------+
-|                                                       |
-|                       <b>Truco-cli</b>                       |
-|                                                       | 
-+-------------------------------------------------------+
+
++-------------------+ * Truco-cli * +-------------------+
 
 O truco-cli foi meu primeiro projeto completo, ele se trata
 do famoso jogo de cartas espanhol, truco, desenvolvido 100% 
@@ -49,11 +47,8 @@ Você pode encontrar seu <a href="https://github.com/vidacalura/Truco-cli">códi
 arquivos["jeek-online.txt"] = 
 `
 <pre>
-+-------------------------------------------------------+
-|                                                       |
-|                       <b>Jeek Online</b>                     |
-|                                                       | 
-+-------------------------------------------------------+
+
++-------------------+ * Jeek Online * +-------------------+
 
 O Jeek Online foi meu primeiro grande projeto. Sendo mantido
 até hoje, o Jeek Online é uma forma de jogar em tempo real
@@ -61,7 +56,8 @@ online o jogo de estratégia de tabuleiro "Jeek".
 
 O site foi desenvolvido com HTML, CSS (Tailwind CSS) e 
 JavaScript padrão para o frontend, junto das tecnologias 
-Node.js e socket.io para o backend.
+Node.js e socket.io para o backend e MySQL para o banco 
+de dados.
 
 Você pode encontrar seu <a href="https://github.com/vidacalura/Jeek-online">código-fonte</a> aqui, ou <a href="https://jeek-online.up.railway.app/">acessar o site</a>
 aqui
@@ -73,17 +69,25 @@ arquivos["mybooklist.txt"] =
 `
 <pre>
 
++-------------------+ * MyBookList * +-------------------+
+
+O MyBookList é um simples site que tem como objetivo servir
+como um lugar para salvar todos os livros lidos por você, junto
+de sua avaliação deste livro, para que você possa compartilhar
+com amigos ou usar de referência.
+
+Feito com HTML/CSS, JavaScript (ECMAScript), Node.js e MySQL.
+
+Você pode acessar o <a href="https://github.com/vidacalura/My-Book-List/">código-fonte</a> aqui
+
 </pre>
 `;
 
 arquivos["bonzitalk.txt"] = 
 `
 <pre>
-+-------------------------------------------------------+
-|                                                       |
-|                       <b>BonziTalk</b>                       |
-|                                                       | 
-+-------------------------------------------------------+
+
++-------------------+ * BonziTalk * +-------------------+
 
 O BonziTalk é um projeto feito para uma feira escolar. O BonziTalk
 tem como função ser uma aplicação web de chamada de vídeo em
@@ -101,11 +105,8 @@ Você pode acessar o <a href="https://github.com/vidacalura/BonziTalk">código-f
 arquivos["randm.txt"] = 
 `
 <pre>
-+-------------------------------------------------------+
-|                                                       |
-|                       <b>randm.rs</b>                        |
-|                                                       | 
-+-------------------------------------------------------+
+
++------------------+ * randm.rs * +-------------------+
 
 O randm.rs é um projeto experimental feito em Rust.
 Este simples script tem como objetivo escolher aleatoriamente

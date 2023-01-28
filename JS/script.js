@@ -7,14 +7,14 @@ const dirTree = {
     // "/": {
     "home": {
         "guest": {
-            "Desktop": ["bonzitalk.txt"], 
+            "Desktop": ["bonzitalk.txt", "mybooklist.txt"], 
             "Documents": ["curriculo.pdf", "aboutme.txt"],
             "Downloads": ["truco-cli.txt", "jeek-online.txt"],
             "Music": ["randm.txt"],
             "Pictures": null, // pasta de imgs
             "Public": null,
             "Templates": null,
-            "Videos": null
+            "Videos": null // Hello, I'm Linus Torvalds
         }
     },
     // }
@@ -236,7 +236,7 @@ function executarComando(comando){
 
                     if (arquivoExiste){
                         if (arquivoNome == "curriculo.pdf") {
-                            window.location.href = "Site-vidacalura/archives/curriculo.pdf";
+                            window.location.href = "archives/curriculo.pdf";
                         }
 
                         printTerminal(arquivos[arquivoNome]);
